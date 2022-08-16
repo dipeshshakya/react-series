@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const TodoList = ({ items, id }) => {
-  console.log(items);
+  // console.log(items);
   return (
     <>
       <div

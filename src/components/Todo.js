@@ -6,7 +6,9 @@ export const Todo = () => {
   const [todoItem, setTodoItem] = useState([]);
   const handleSubmit = (e, props) => {
     e.preventDefault();
+    console.log(e);
     setTodoItem([...todoItem, props]);
+    e.target.reset();
   };
   return (
     <>

@@ -15,7 +15,7 @@ const Form = ({ handleSubmit }) => {
         hover:border-slate-500
         border border-slate-300
         clear-both focus:cursor-not-allowed"
-          value={value}
+        
           onChange={(e) => setValue(e.target.value)}
         />
       </form>
