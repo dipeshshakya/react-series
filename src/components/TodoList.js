@@ -1,16 +1,18 @@
 import React from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaPencilAlt } from 'react-icons/fa';
 
-export const TodoList = ({ items, id, deleteItem }) => {
-  // console.log(items);
+export const TodoList = ({ items, id, deleteItem, editItem }) => {
   return (
     <>
       <div
         className="container rounded-sm shadow-sm border-slate-500 p-4 hover:shadow-md mb-4 flex justify-between"
-        id={id}
+        key={id}
       >
         <p>{items}</p>
-        <FaTrash onClick={() => deleteItem(id)} />
+        <div className="flex">
+          <FaPencilAlt className="mx-1" onClick={() => editItem(id)} />
+          <FaTrash className="mx-1" onClick={() => deleteItem(id)} />
+        </div>
       </div>
     </>
   );

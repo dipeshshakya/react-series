@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 
-const Form = ({ handleSubmit }) => {
+const Form = ({ handleSubmit, isEditing }) => {
   const [value, setValue] = useState('');
   return (
     <div className="container mx-auto">
