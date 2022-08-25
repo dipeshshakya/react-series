@@ -1,18 +1,27 @@
-import { React, useState } from 'react';
+import { React, useReducer } from 'react';
 import Form from './Form';
 import { TodoList } from './TodoList';
+import { reducer } from '../TodoReducer';
+const initialState = {
+  loading: 'false',
+  data: ['this is the first todo', 'this is the second todo'],
+};
 
 export const Todo = () => {
-  const [todoItem, setTodoItem] = useState([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   const handleSubmit = (e, props) => {
     e.preventDefault();
-    setTodoItem([...todoItem, props]);
+    dispatch({ type: 'ADD', payload: props });
+  };
+  const deleteItem = (id) => {
+    dispatch({ type: 'DELETE', payload: id });
   };
   return (
     <>
       <Form handleSubmit={handleSubmit} />
-      {todoItem.map((item, key) => {
-        return <TodoList id={key} items={item} />;
+      {state.data.map((item, key) => {
+        return <TodoList id={key} items={item} deleteItem={deleteItem} />;
       })}
     </>
   );
